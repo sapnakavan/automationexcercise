@@ -19,17 +19,12 @@ public class RegisterTest extends BaseTest {
     @Test
     public void  RegisterUserwithexistingemail(){
         //Verify that home page is visible successfully
-        WebElement verify = driver.findElement(By.xpath("//header[@id='header']"));
-        String accmess = verify.getText();
-        String expmess = "Home\n" +
-                "\uE8F8 Products\n" +
-                "Cart\n" +
-                "Signup / Login\n" +
-                "Test Cases\n" +
-                "API Testing\n" +
-                "Video Tutorials\n" +
-                "Contact us";
-        Assert.assertEquals(expmess,accmess);
+        String verify = driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[1]")).getText();
+        String accmess = verify.substring(0);
+        System.out.println(accmess);
+        String expmess ="Home";
+        Assert.assertEquals(expmess, accmess);
+
 
 
         //4. Click on 'Signup / Login' button
@@ -39,8 +34,9 @@ public class RegisterTest extends BaseTest {
 
 
         //5. Verify 'New User Signup!' is visible
-        WebElement ver = driver.findElement(By.xpath("//div[@class='signup-form']"));
-        String acc = ver.getText();
+        String ver = driver.findElement(By.xpath("//div[@class='signup-form']")).getText();
+        String acc = ver.substring(0);
+        System.out.println(acc);
         String exp = "New User Signup!\n" +
                      "Signup";
         Assert.assertEquals(exp,acc);
@@ -60,8 +56,9 @@ public class RegisterTest extends BaseTest {
 
 
         //8. Verify error 'Email Address already exist!' is visible
-        WebElement verify1 = driver.findElement(By.xpath("//p[contains(text(),'Email Address already exist!')]"));
-        String acc1 = verify1.getText();
+        String verify1 = driver.findElement(By.xpath("//p[contains(text(),'Email Address already exist!')]")).getText();
+        String acc1 = verify1.substring(0);
+        System.out.println(acc1);
         String exp1 = "Email Address already exist!";
         Assert.assertEquals(exp1,acc1);
 

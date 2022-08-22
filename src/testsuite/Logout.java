@@ -18,17 +18,12 @@ public class Logout extends BaseTest {
     @Test
     public void  LogoutUser(){
         //Verify that home page is visible successfully
-        WebElement verify = driver.findElement(By.xpath("//header[@id='header']"));
-        String accmess = verify.getText();
-        String expmess = "Home\n" +
-                "\uE8F8 Products\n" +
-                "Cart\n" +
-                "Signup / Login\n" +
-                "Test Cases\n" +
-                "API Testing\n" +
-                "Video Tutorials\n" +
-                "Contact us";
-        Assert.assertEquals(expmess,accmess);
+        String verify = driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[1]")).getText();
+        String accmess = verify.substring(0);
+        System.out.println(accmess);
+        String expmess ="Home";
+        Assert.assertEquals(expmess, accmess);
+
 
 
 
@@ -40,8 +35,9 @@ public class Logout extends BaseTest {
 
 
         //5. Verify 'Login to your account' is visible
-        WebElement verfy = driver.findElement(By.xpath("//div[@class='login-form']"));
-        String acmess = verfy.getText();
+        String verfy = driver.findElement(By.xpath("//div[@class='login-form']")).getText();
+        String acmess = verfy.substring(0);
+        System.out.println(accmess);
         String exmess = "Login to your account\n" +
                         "Login";
 
@@ -68,8 +64,9 @@ public class Logout extends BaseTest {
 
 
         //8. Verify that 'Logged in as username' is visible
-        WebElement verify1 = driver.findElement(By.xpath("//*[contains(text(),' Logged in as ')]"));
-        String acc1 = verify1.getText();
+        String verify1 = driver.findElement(By.xpath("//*[contains(text(),' Logged in as ')]")).getText();
+        String acc1 = verify1.substring(0);
+        System.out.println(acc1);
         String exp1 = "Logged in as test";
         Assert.assertEquals(exp1,acc1);
 
@@ -81,8 +78,9 @@ public class Logout extends BaseTest {
 
 
         //10. Verify that user is navigated to login page
-        WebElement verfy1 = driver.findElement(By.xpath("//div[@class='login-form']"));
-        String acmess1 = verfy.getText();
+        String verfy1 = driver.findElement(By.xpath("//div[@class='login-form']")).getText();
+        String acmess1 = verfy.substring(0);
+        System.out.println(acmess1);
         String exmess1 = "Login to your account\n" +
                 "Login";
 

@@ -19,17 +19,11 @@ public class LoginTest_2 extends BaseTest {
     @Test
     public void LoginUserwithincorrectemailandpassword() {
         // Verify that home page is visible successfully
-        WebElement verify = driver.findElement(By.xpath("//header[@id='header']"));
-        String accmess = verify.getText();
-        String expmess = "Home\n" +
-                "\uE8F8 Products\n" +
-                "Cart\n" +
-                "Signup / Login\n" +
-                "Test Cases\n" +
-                "API Testing\n" +
-                "Video Tutorials\n" +
-                "Contact us";
-        Assert.assertEquals(expmess,accmess);
+        String verify = driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[1]")).getText();
+        String accmess = verify.substring(0);
+        System.out.println(accmess);
+        String expmess ="Home";
+        Assert.assertEquals(expmess, accmess);
 
 
         //Click on 'Signup / Login' button
@@ -38,8 +32,9 @@ public class LoginTest_2 extends BaseTest {
         login.click();
 
         // Verify 'Login to your account' is visible
-        WebElement verfy = driver.findElement(By.xpath("//div[@class='login-form']"));
-        String acmess = verfy.getText();
+        String verfy = driver.findElement(By.xpath("//div[@class='login-form']")).getText();
+        String acmess = verfy.substring(0);
+        System.out.println(acmess);
         String exmess = "Login to your account\n" +
                         "Login";
 
@@ -63,8 +58,9 @@ public class LoginTest_2 extends BaseTest {
 
 
         //Verify error 'Your email or password is incorrect!' is visible
-         WebElement verify2 = driver.findElement(By.xpath("//p[contains(text(),'Your email or password is incorrect!')]"));
-         String acc2 = verify2.getText();
+         String verify2 = driver.findElement(By.xpath("//p[contains(text(),'Your email or password is incorrect!')]")).getText();
+         String acc2 = verify2.substring(0);
+        System.out.println(acc2);
          String exp2 = "Your email or password is incorrect!";
          Assert.assertEquals(exp2,acc2);
 

@@ -20,30 +20,25 @@ public class LoginTest_1 extends BaseTest {
     @Test
     public void LoginUserwithcorrectemailandpassword(){
         // Verify that home page is visible successfully
-        WebElement verify = driver.findElement(By.xpath("//header[@id='header']"));
-        String accmess = verify.getText();
-        String expmess = "Home\n" +
-                "\uE8F8 Products\n" +
-                "Cart\n" +
-                "Signup / Login\n" +
-                "Test Cases\n" +
-                "API Testing\n" +
-                "Video Tutorials\n" +
-                "Contact us";
-        Assert.assertEquals(expmess,accmess);
+        String verify = driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[1]")).getText();
+        String accmess = verify.substring(0);
+        System.out.println(accmess);
+        String expmess ="Home";
+        Assert.assertEquals(expmess, accmess);
 
 
-          //Click on 'Signup / Login' button
+        //Click on 'Signup / Login' button
         //driver.findElement(By.linkText(" Signup / Login")).click();
         WebElement login = driver.findElement(By.linkText("Signup / Login"));
         login.click();
 
 
        // Verify 'Login to your account' is visible
-        WebElement verfy = driver.findElement(By.xpath("//div[@class='login-form']"));
-        String acmess = verfy.getText();
-        String exmess = "Login to your account\n" +
-                        "Login";
+        String verfy = driver.findElement(By.xpath("//div[@class='login-form']")).getText();
+        String acmess = verfy.substring(0,21);
+        System.out.println(acmess);
+        String exmess = "Login to your account";
+
 
         Assert.assertEquals(exmess,acmess);
 
@@ -67,8 +62,9 @@ public class LoginTest_1 extends BaseTest {
 
 
         //Verify that 'Logged in as username' is visible
-        WebElement verify1 = driver.findElement(By.xpath("//*[contains(text(),' Logged in as ')]"));
-        String acc1 = verify1.getText();
+        String verify1 = driver.findElement(By.xpath("//*[contains(text(),' Logged in as ')]")).getText();
+        String acc1 = verify1.substring(0);
+        System.out.println(acc1);
         String exp1 = "Logged in as test";
         Assert.assertEquals(exp1,acc1);
 
@@ -82,8 +78,9 @@ public class LoginTest_1 extends BaseTest {
 
 
        //. Verify that 'ACCOUNT DELETED!' is visible
-        WebElement ver = driver.findElement(By.xpath("//div[@class='page-header']"));
-        String acc = ver.getText();
+        String ver = driver.findElement(By.xpath("//div[@class='page-header']")).getText();
+        String acc = ver.substring(0);
+        System.out.println(acc);
         String exp = "Delete Account";
 
         Assert.assertEquals(exp,acc);

@@ -19,17 +19,12 @@ public class SearchProduct extends BaseTest {
     @Test
     public void SearchProduct(){
         //Verify that home page is visible successfully
-        WebElement verify = driver.findElement(By.xpath("//header[@id='header']"));
-        String accmess = verify.getText();
-        String expmess = "Home\n" +
-                "\uE8F8 Products\n" +
-                "Cart\n" +
-                "Signup / Login\n" +
-                "Test Cases\n" +
-                "API Testing\n" +
-                "Video Tutorials\n" +
-                "Contact us";
-        Assert.assertEquals(expmess,accmess);
+        String verify = driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[1]")).getText();
+        String accmess = verify.substring(0);
+        System.out.println(accmess);
+        String expmess ="Home";
+        Assert.assertEquals(expmess, accmess);
+
 
 
         //4. Click on 'Products' button
@@ -39,8 +34,9 @@ public class SearchProduct extends BaseTest {
 
 
         //5. Verify user is navigated to ALL PRODUCTS page successfully
-        WebElement verify1 = driver.findElement(By.xpath("//*[text()='All Products']"));
-        String acc = verify1.getText();
+        String verify1 = driver.findElement(By.xpath("//*[text()='All Products']")).getText();
+        String acc = verify1.substring(0);
+        System.out.println(acc);
         String expo = "ALL PRODUCTS";
         Assert.assertEquals(expo,acc);
 
@@ -53,18 +49,27 @@ public class SearchProduct extends BaseTest {
         search.click();
 
         //7. Verify 'SEARCHED PRODUCTS' is visible
-        WebElement verify2 = driver.findElement(By.xpath("//*[text()='Searched Products']"));
-        String acc2 = verify2.getText();
+        String verify2 = driver.findElement(By.xpath("//*[text()='Searched Products']")).getText();
+        String acc2 = verify2.substring(0);
+        System.out.println(acc2);
         String expo2 = "SEARCHED PRODUCTS";
         Assert.assertEquals(expo2,acc2);
 
 
 
         //8. Verify all the products related to search are visible
-       WebElement verify3 = driver.findElement(By.xpath(""));
-       String acc3 = verify3.getText();
-       String expo3 = "";
-       Assert.assertEquals(expo3,acc3);
+        String versearch = driver.findElement(By.xpath("//div[@class='product-image-wrapper']")).getText();
+        String acc1 = versearch.substring(0);
+        System.out.println(acc1);
+        String expo1= "Rs. 500\n" +
+                      "Blue Top\n" +
+                      "Add to cart\n" +
+                      "View Product";
+
+        Assert.assertEquals(expo1,acc1);
+
+
+
 
 
 
